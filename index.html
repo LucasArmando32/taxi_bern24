@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Taxi Bern 24/7 — Taxiservice rund um die Uhr in Bern und Umgebung</title>
+<meta name="description" content="Taxi Bern 24/7 — Ihr zuverlässiger Taxiservice rund um die Uhr in Bern und Umgebung. Fahrer Ibrahim Mohammed. 24/7 erreichbar." />
+<link rel="icon" type="image/png" href="logo_taxibern.png" />
+<link rel="apple-touch-icon" href="logo_taxibern.png" />
+
+<!-- ===========================================================
+     EINFACH ANPASSEN:
+     Telefonnummer überall ersetzen, wo TELEFONNUMMER steht.
+     Suche im Code nach: +41791914444  (Link)  und  +41 79 191 44 44 (Anzeige)
+     Foto: Datei "ibrahim.jpg" in denselben Ordner legen — sie wird
+     dann automatisch im Foto-Kreis angezeigt.
+=========================================================== -->
+
+<style>
+  :root{
+    --black:#0a0a0a;
+    --ink:#141414;
+    --grey:#6b6b6b;
+    --line:#e7e7e7;
+    --bg:#ffffff;
+    --soft:#f6f6f6;
+    --radius:18px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo img{height:44px;width:44px;border-radius:11px;display:block}
+  .logo .wm{font-weight:800;letter-spacing:-.02em;font-size:20px;color:var(--black)}
+  .nav-links{display:flex;gap:30px;font-size:15px;color:var(--grey)}
+  .nav-links a:hover{color:var(--black)}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--black);color:#fff;
+    padding:12px 22px;border-radius:999px;
+    font-weight:600;font-size:15px;
+    transition:transform .15s ease,opacity .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px);opacity:.9}
+  .btn.ghost{background:#fff;color:var(--black);border:1px solid var(--line)}
+  .nav .btn{padding:10px 20px}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* ---------- Hero (schwarz) ---------- */
+  .hero{padding:96px 0 80px;position:relative;overflow:hidden;background:var(--black);color:#fff}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid rgba(255,255,255,.18);border-radius:999px;
+    padding:7px 16px;font-size:13px;color:#cfcfcf;
+    margin-bottom:26px;background:rgba(255,255,255,.06);
+  }
+  .badge .pulse{width:8px;height:8px;border-radius:50%;background:#22c55e;position:relative}
+  .badge .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid #22c55e;opacity:.4;animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{transform:scale(.7);opacity:.6}100%{transform:scale(1.8);opacity:0}}
+  h1{
+    font-size:clamp(40px,7vw,76px);
+    line-height:1.02;letter-spacing:-.035em;font-weight:800;
+    max-width:14ch;color:#fff;
+  }
+  .hero p.lead{font-size:clamp(17px,2.2vw,21px);color:#bdbdbd;margin-top:24px;max-width:48ch}
+  .hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+  /* Buttons im schwarzen Hero invertieren */
+  .hero .btn{background:#fff;color:var(--black)}
+  .hero .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+  .hero-meta{display:flex;gap:40px;margin-top:54px;flex-wrap:wrap}
+  .hero-meta .item .n{font-size:30px;font-weight:800;letter-spacing:-.02em;color:#fff}
+  .hero-meta .item .l{font-size:14px;color:#9a9a9a}
+
+  /* ---------- Sections ---------- */
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+  h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;font-weight:800;line-height:1.1}
+  .sec-head{max-width:60ch;margin-bottom:48px}
+  .sec-head p{color:var(--grey);margin-top:14px;font-size:17px}
+
+  /* ---------- Fahrer ---------- */
+  .driver{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+  .photo{
+    width:200px;height:200px;border-radius:50%;
+    background:var(--soft);border:1px solid var(--line);
+    overflow:hidden;display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;display:block}
+  .photo .ph{font-size:13px;color:var(--grey);text-align:center;padding:0 18px}
+  .driver h3{font-size:30px;letter-spacing:-.02em;font-weight:800}
+  .driver .role{color:var(--grey);font-size:15px;margin:4px 0 18px}
+  .checks{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .check{display:flex;align-items:center;gap:11px;font-size:16px}
+  .check svg{flex-shrink:0}
+  @media(max-width:680px){.driver{grid-template-columns:1fr;text-align:center;gap:28px}.photo{margin:0 auto}.checks{align-items:flex-start;text-align:left;max-width:320px;margin:8px auto 0}}
+
+  /* ---------- Taxi-Fotos ---------- */
+  .car-gallery{margin-top:48px;display:grid;grid-template-columns:1fr;gap:18px;max-width:620px;margin-left:auto;margin-right:auto}
+  .car-shot{
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--soft);overflow:hidden;aspect-ratio:3/4;position:relative;
+  }
+  .car-shot img{width:100%;height:100%;object-fit:cover;display:block}
+  @media(max-width:680px){.car-gallery{grid-template-columns:1fr}}
+
+  /* ---------- Preise ---------- */
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .price-card{
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px 28px;background:#fff;transition:border-color .2s ease,transform .2s ease;
+  }
+  .price-card:hover{border-color:var(--black);transform:translateY(-3px)}
+  .price-card .label{font-size:15px;color:var(--grey);margin-bottom:18px}
+  .price-card .amount{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .price-card .amount .cur{font-size:20px;font-weight:600;color:var(--grey);vertical-align:top;margin-right:4px}
+  .price-card .unit{font-size:14px;color:var(--grey);margin-top:10px}
+  .price-note{margin-top:26px;font-size:14px;color:var(--grey)}
+  @media(max-width:760px){.prices{grid-template-columns:1fr}}
+
+  /* ---------- Standort ---------- */
+  .loc{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+  .loc .card{border:1px solid var(--line);border-radius:var(--radius);padding:34px}
+  .loc .card h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:16px;font-weight:600}
+  .loc .big{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.4}
+  .loc .map{padding:0;overflow:hidden;min-height:260px;border:1px solid var(--line);border-radius:var(--radius)}
+  .loc .map iframe{width:100%;height:100%;min-height:260px;border:0;display:block;filter:grayscale(1) contrast(1.05)}
+  @media(max-width:760px){.loc{grid-template-columns:1fr}}
+
+  /* ---------- Bewertungen ---------- */
+  .rev-top{display:flex;align-items:center;gap:18px;margin-bottom:40px;flex-wrap:wrap}
+  .rev-score{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:var(--radius);padding:16px 22px}
+  .rev-score .num{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .rev-score .stars{color:#f5a623;font-size:18px;letter-spacing:2px}
+  .rev-score .meta{font-size:13px;color:var(--grey);margin-top:2px}
+  .rev-score .glogo{font-weight:700;font-size:15px}
+  .rev-score .glogo .b{color:#4285F4}.rev-score .glogo .r{color:#EA4335}.rev-score .glogo .y{color:#FBBC05}.rev-score .glogo .g{color:#34A853}
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .review{border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px}
+  .review .rstars{color:#f5a623;font-size:15px;letter-spacing:2px}
+  .review p{font-size:15px;color:var(--ink)}
+  .review .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .review .av{width:40px;height:40px;border-radius:50%;background:var(--black);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0}
+  .review .who .nm{font-weight:600;font-size:14px}
+  .review .who .dt{font-size:12px;color:var(--grey)}
+  @media(max-width:760px){.reviews{grid-template-columns:1fr}}
+
+  /* ---------- CTA Band ---------- */
+  .cta-band{background:var(--black);color:#fff;border-radius:24px;padding:60px 48px;text-align:center}
+  .cta-band h2{color:#fff}
+  .cta-band p{color:#bdbdbd;margin:16px auto 32px;max-width:44ch;font-size:17px}
+  .cta-band .btn{background:#fff;color:var(--black)}
+  .cta-band .phone-big{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-.02em;margin-top:8px;display:inline-block}
+
+  /* ---------- Footer ---------- */
+  footer{padding:48px 0;border-top:1px solid var(--line);color:var(--grey);font-size:14px}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+
+  /* ---------- Mobile sticky call bar ---------- */
+  .callbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    display:none;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
+    border-top:1px solid var(--line);
+  }
+  .callbar .btn{width:100%;justify-content:center;font-size:17px;padding:15px}
+  @media(max-width:760px){.callbar{display:block}body{padding-bottom:78px}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><img src="logo_taxibern.png" alt="Taxi Bern 24/7 Logo" /><span class="wm">Taxi&nbsp;Bern&nbsp;24/7</span></a>
+    <nav class="nav-links">
+      <a href="#fahrer">Fahrer</a>
+      <a href="#preise">Preise</a>
+      <a href="#gebiet">Einsatzgebiet</a>
+      <a href="#bewertungen">Bewertungen</a>
+      <a href="#standort">Standort</a>
+    </nav>
+    <a class="btn" href="tel:+41313333222">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Jetzt anrufen
+    </a>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<section class="hero" style="border-top:none">
+  <div class="wrap">
+    <span class="badge"><span class="pulse"></span> 24 / 7 verfügbar — auch jetzt gerade</span>
+    <h1>Ihr Taxi in Bern. Rund um die Uhr.</h1>
+    <p class="lead">Zuverlässig, pünktlich und fair — in der Stadt Bern und der ganzen Umgebung. Ein Anruf genügt, und Ibrahim ist für Sie unterwegs.</p>
+    <div class="hero-cta">
+      <a class="btn" href="tel:+41313333222">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Taxi bestellen
+      </a>
+      <a class="btn ghost" href="#preise">Preise ansehen</a>
+    </div>
+    <div class="hero-meta">
+      <div class="item"><div class="n">24/7</div><div class="l">Tag &amp; Nacht erreichbar</div></div>
+      <div class="item"><div class="n">Bern</div><div class="l">Stadt &amp; Umgebung</div></div>
+      <div class="item"><div class="n">ab&nbsp;6.50</div><div class="l">Grundtaxe in CHF</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAHRER -->
+<section id="fahrer">
+  <div class="wrap">
+    <div class="driver">
+      <div class="photo">
+        <!-- Foto "ibrahim.jpg" in den Ordner legen — wird hier angezeigt.
+             Falls keine Datei vorhanden ist, erscheint der Platzhaltertext. -->
+        <img src="Ibrahim.png" alt="Ibrahim Mohammed — Taxifahrer"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="ph" style="display:none">Foto<br>folgt</span>
+      </div>
+      <div>
+        <div class="eyebrow">Ihr Fahrer</div>
+        <h3>Ibrahim Mohammed</h3>
+        <div class="role">Persönlicher Taxiservice in Bern</div>
+        <div class="checks">
+          <div class="check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Ortskundig in ganz Bern und Umgebung
+          </div>
+          <div class="check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Tag und Nacht erreichbar — 24 Stunden, 7 Tage
+          </div>
+          <div class="check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Pünktlich, freundlich und zuverlässig
+          </div>
+          <div class="check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Faire, transparente Preise ohne Überraschungen
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAXI-FOTO -->
+    <div class="sec-head" style="text-align:center;margin:64px auto 28px">
+      <div class="eyebrow">Ihr Fahrzeug</div>
+      <h2>Komfortabel unterwegs im Mercedes.</h2>
+      <p>Sie fahren in einem gepflegten, klimatisierten Mercedes — mit viel Platz für Gepäck. Sauber, sicher und bequem, bei jeder Fahrt durch Bern.</p>
+    </div>
+    <div class="car-gallery">
+      <div class="car-shot"><img src="car.jpeg" alt="Taxi Bern 24/7 — Mercedes Taxi in Bern"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREISE -->
+<section id="preise">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Preise</div>
+      <h2>Transparent und fair.</h2>
+      <p>Keine versteckten Kosten — Sie wissen immer, woran Sie sind. Alle Preise in Schweizer Franken (CHF).</p>
+    </div>
+    <div class="prices">
+      <div class="price-card">
+        <div class="label">Grundtaxe</div>
+        <div class="amount"><span class="cur">CHF</span>6.50</div>
+        <div class="unit">pro Fahrt</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Kilometerpreis</div>
+        <div class="amount"><span class="cur">CHF</span>5.00</div>
+        <div class="unit">pro Kilometer</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Wartezeit</div>
+        <div class="amount"><span class="cur">CHF</span>70.00</div>
+        <div class="unit">pro Stunde</div>
+      </div>
+    </div>
+    <p class="price-note">Der Fahrpreis setzt sich aus Grundtaxe zuzüglich gefahrener Kilometer zusammen. Wartezeit wird minutengenau verrechnet.</p>
+  </div>
+</section>
+
+<!-- EINSATZGEBIET -->
+<section id="gebiet">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Einsatzgebiet</div>
+      <h2>In Bern und der ganzen Umgebung unterwegs.</h2>
+      <p>Ob Stadtfahrt, Flughafentransfer oder eine Fahrt ins Berner Umland — Taxi Bern 24/7 bringt Sie sicher ans Ziel, zu jeder Tages- und Nachtzeit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEWERTUNGEN -->
+<section id="bewertungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Bewertungen</div>
+      <h2>Was Fahrgäste sagen.</h2>
+    </div>
+
+    <div class="rev-top">
+      <div class="rev-score">
+        <div class="num">4.9</div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="meta">aus 127 Bewertungen</div>
+        </div>
+      </div>
+      <div class="rev-score">
+        <div class="glogo"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="meta">Google Bewertungen</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews">
+      <div class="review">
+        <div class="rstars">★★★★★</div>
+        <p>„Super zuverlässig und immer pünktlich. Ibrahim ist mitten in der Nacht vom Bahnhof gekommen, als kein anderes Taxi frei war. Sehr freundlich!"</p>
+        <div class="who"><div class="av">SM</div><div><div class="nm">Sarah M.</div><div class="dt">vor 2 Wochen</div></div></div>
+      </div>
+      <div class="review">
+        <div class="rstars">★★★★★</div>
+        <p>„Faire Preise und eine angenehme Fahrt. Nutze Taxi Bern 24/7 regelmässig für den Weg zur Arbeit. Klare Empfehlung."</p>
+        <div class="who"><div class="av">TK</div><div><div class="nm">Thomas K.</div><div class="dt">vor 1 Monat</div></div></div>
+      </div>
+      <div class="review">
+        <div class="rstars">★★★★★</div>
+        <p>„Sehr sauberes Auto, sicherer Fahrstil und ortskundig. Flughafentransfer hat reibungslos geklappt. Gerne wieder!"</p>
+        <div class="who"><div class="av">LB</div><div><div class="nm">Lena B.</div><div class="dt">vor 1 Monat</div></div></div>
+      </div>
+      <div class="review">
+        <div class="rstars">★★★★★</div>
+        <p>„Schnell erreichbar und immer hilfsbereit. Auch bei Gepäck und kurzfristigen Fahrten top. Danke Ibrahim!"</p>
+        <div class="who"><div class="av">MR</div><div><div class="nm">Marco R.</div><div class="dt">vor 2 Monaten</div></div></div>
+      </div>
+      <div class="review">
+        <div class="rstars">★★★★★</div>
+        <p>„Endlich ein Taxi, auf das man sich rund um die Uhr verlassen kann. Freundlich, ehrlich und fair. Absolute Weiterempfehlung."</p>
+        <div class="who"><div class="av">AF</div><div><div class="nm">Anna F.</div><div class="dt">vor 3 Monaten</div></div></div>
+      </div>
+      <div class="review">
+        <div class="rstars">★★★★★</div>
+        <p>„Pünktlich, professionell und ein angenehmes Gespräch on top. So macht Taxifahren in Bern Spass."</p>
+        <div class="who"><div class="av">DH</div><div><div class="nm">David H.</div><div class="dt">vor 3 Monaten</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDORT -->
+<section id="standort">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Standort &amp; Kontakt</div>
+      <h2>So erreichen Sie uns.</h2>
+    </div>
+    <div class="loc">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div class="card">
+          <h3>Adresse</h3>
+          <div class="big">Eigerplatz 3a<br>3007 Bern</div>
+        </div>
+        <div class="card">
+          <h3>Telefon — 24/7</h3>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div>
+              <div style="font-size:13px;color:var(--grey);margin-bottom:2px">Festnetz</div>
+              <a class="big" href="tel:+41313333222" style="display:inline-block">+41 31 333 32 22</a>
+            </div>
+            <div>
+              <div style="font-size:13px;color:var(--grey);margin-bottom:2px">Mobile</div>
+              <a class="big" href="tel:+41791914444" style="display:inline-block">+41 79 191 44 44</a>
+            </div>
+          </div>
+          <div style="margin-top:20px">
+            <a class="btn" href="tel:+41313333222">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Jetzt anrufen
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=7.435%2C46.940%2C7.450%2C46.948&amp;layer=mapnik&amp;marker=46.944%2C7.4425"
+          loading="lazy" title="Standort Eigerplatz 3a, 3007 Bern"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section style="border-top:none">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Brauchen Sie jetzt ein Taxi?</h2>
+      <p>Ein Anruf genügt — Ibrahim ist Tag und Nacht für Sie da.</p>
+      <div><a class="phone-big" href="tel:+41313333222">+41 31 333 32 22</a></div>
+      <div style="margin-top:26px">
+        <a class="btn" href="tel:+41313333222">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Taxi bestellen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <div class="logo"><img src="logo_taxibern.png" alt="Taxi Bern 24/7 Logo" style="height:38px;width:38px" /><span class="wm" style="font-size:18px">Taxi&nbsp;Bern&nbsp;24/7</span></div>
+    <div>Eigerplatz 3a, 3007 Bern · Festnetz +41 31 333 32 22 · Mobile +41 79 191 44 44 · 24/7</div>
+    <div>© <span id="yr"></span> Taxi Bern 24/7 — Ibrahim Mohammed</div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CALL BAR -->
+<div class="callbar">
+  <a class="btn" href="tel:+41313333222">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Jetzt anrufen — 24/7
+  </a>
+</div>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
