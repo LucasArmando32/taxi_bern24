@@ -1,0 +1,7 @@
+Dockerfile
+.dockerignore
+*.md
+logo_taxibern_backup.png
+logo/
+.git
+.DS_Store
